@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
+import ContactSection from './ContactSection';
 import HeroArea from './HeroArea';
 import Projects from './Projects';
 import Services from './Services';
@@ -14,6 +15,7 @@ const Home = () => {
                 <Projects />
                 <Services />
                 <Testimonials />
+                <ContactSection />
             </div>
         </div>
     );
