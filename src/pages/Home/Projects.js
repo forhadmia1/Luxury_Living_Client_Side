@@ -2,9 +2,9 @@ import React from 'react';
 
 const Projects = () => {
     return (
-        <section className='mb-20'>
+        <section className='mb-20 pt-10'>
             <p className='text-primary text-center font-bold'><small>Projects</small></p>
-            <h2 className='text-3xl text-center text-primary font-bold'>Discover the latest Interior Design <br /> available today</h2>
+            <h2 className='text-xl md:text-3xl text-center text-primary font-bold'>Discover the latest Interior Design <br /> available today</h2>
             <div className='mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0'>
                 <div className="card  bg-base-100 shadow-xl rounded">
                     <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
