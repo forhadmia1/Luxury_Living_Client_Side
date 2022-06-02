@@ -11,22 +11,22 @@ const AddService = () => {
         e.preventDefault()
         const title = e.target.title.value;
         const description = e.target.description.value;
+        const image = file;
         console.log(file)
 
     }
     return (
         <div className='px-8 mt-8'>
             <form onSubmit={handleSubmit} className='flex flex-col gap-8' >
-                <div className='flex gap-8 items-center'>
-                    <div class="form-control w-full max-w-xs">
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0'>
+                    <div class="form-control w-full max-w-xs order-1">
                         <label class="label">
                             <span class="label-text font-bold">Service Title</span>
                         </label>
                         <input type="text" name='title' class="input input-bordered w-full max-w-xs" />
                     </div>
-                    <div>
+                    <div className='order-3 md:order-2'>
                         <input onChange={getFile} type="file" name='file' id="file" className='hidden' />
-
                         <label class="label">
                             <span class="label-text font-bold">Image</span>
                         </label>
@@ -39,12 +39,12 @@ const AddService = () => {
                             </label>
                         </div>
                     </div>
-                </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text font-bold">Description</span>
-                    </label>
-                    <textarea name='description' class="textarea textarea-bordered h-24 w-full max-w-xs" ></textarea>
+                    <div class="form-control order-2 md:order-3">
+                        <label class="label">
+                            <span class="label-text font-bold">Description</span>
+                        </label>
+                        <textarea name='description' class="textarea textarea-bordered h-24 w-full max-w-xs" ></textarea>
+                    </div>
                 </div>
                 <div>
                     <input className='btn btn-primary px-8 py-3' type="submit" value={'Submit'} />
