@@ -60,7 +60,7 @@ const ContactSection = () => {
                             </label>
                         </div>
                         <div className='flex justify-center mt-5'>
-                            <input className='btn btn-primary px-8 py-2' type="submit" value={'Send Message'} />
+                            <input className='btn btn-primary px-8 py-2 text-white' type="submit" value={'Send Message'} />
                         </div>
                     </form>
                 </div>
