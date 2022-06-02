@@ -9,8 +9,8 @@ const ContactSection = () => {
     } = useForm();
     const onSubmit = (data) => console.log(data);
     return (
-        <section className='my-52'>
-            <div className='w-1/2'>
+        <section className='my-20 md:my-52'>
+            <div className='w-full md:w-1/2 p-4'>
                 <div className='text-center'>
                     <h4 className='font-semibold'>Contact</h4>
                     <h2 className='text-xl md:text-3xl font-bold text-primary'>Let us handle your

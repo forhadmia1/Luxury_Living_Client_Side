@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 import ContactSection from './ContactSection';
 import HeroArea from './HeroArea';
@@ -17,6 +18,7 @@ const Home = () => {
                 <Testimonials />
                 <ContactSection />
             </div>
+            <Footer />
         </div>
     );
 };
