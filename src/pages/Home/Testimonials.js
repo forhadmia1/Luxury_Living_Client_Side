@@ -8,8 +8,8 @@ const Testimonials = () => {
             <div className='grid grid-cols-1 md:grid-cols-3 mt-14'>
                 <div className="card  bg-base-100 rounded p-4">
                     <div className='flex items-center'>
-                        <div class="avatar mr-4">
-                            <div class="w-16 rounded-full">
+                        <div className="avatar mr-4">
+                            <div className="w-16 rounded-full">
                                 <img src="https://api.lorem.space/image/face?hash=92310" />
                             </div>
                         </div>
@@ -30,8 +30,8 @@ const Testimonials = () => {
 
                 <div className="card  bg-base-100 rounded p-4">
                     <div className='flex items-center'>
-                        <div class="avatar mr-4">
-                            <div class="w-16 rounded-full">
+                        <div className="avatar mr-4">
+                            <div className="w-16 rounded-full">
                                 <img src="https://api.lorem.space/image/face?hash=92310" />
                             </div>
                         </div>
@@ -52,8 +52,8 @@ const Testimonials = () => {
 
                 <div className="card  bg-base-100 rounded p-4">
                     <div className='flex items-center'>
-                        <div class="avatar mr-4">
-                            <div class="w-16 rounded-full">
+                        <div className="avatar mr-4">
+                            <div className="w-16 rounded-full">
                                 <img src="https://api.lorem.space/image/face?hash=92310" />
                             </div>
                         </div>

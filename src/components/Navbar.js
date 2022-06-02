@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { themeChange } from 'theme-change'
 import logo from '../Assets/Image_Icon/Group 33069.png'
 
@@ -23,7 +24,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="h-5 w-20">
-                    <img src={logo} alt='' />
+                    <Link to={'/'}>
+                        <img src={logo} alt='' />
+                    </Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -36,7 +39,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className='navbar-end'>
-                <a className='btn btn-primary text-white py-3 px-7'>Login</a>
+                <Link to={'/login'} className='btn btn-primary text-white py-3 px-7'>Login</Link>
             </div>
         </nav>
     );

@@ -19,20 +19,20 @@ const ContactSection = () => {
                 <div className='mt-20'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='grid grid-cols-2 gap-4'>
-                            <div class="form-control">
-                                <input placeholder="First Name" class="input w-full max-w-xs" {...register('firstName', { required: true })} />
-                                <label class="label">
+                            <div className="form-control">
+                                <input placeholder="First Name" className="input w-full max-w-xs" {...register('firstName', { required: true })} />
+                                <label className="label">
                                     {errors.firstName && <p className='text-red-500'>First name is required.</p>}
                                 </label>
                             </div>
-                            <div class="form-control">
-                                <input placeholder="Last Name" class="input w-full max-w-xs" {...register('lastName', { required: true })} />
-                                <label class="label">
+                            <div className="form-control">
+                                <input placeholder="Last Name" className="input w-full max-w-xs" {...register('lastName', { required: true })} />
+                                <label className="label">
                                     {errors.lastName && <p className='text-red-500'>Last name is required.</p>}
                                 </label>
                             </div>
-                            <div class="form-control ">
-                                <input placeholder="Email Address" class="input w-full max-w-xs" {...register('email', {
+                            <div className="form-control ">
+                                <input placeholder="Email Address" className="input w-full max-w-xs" {...register('email', {
                                     required: {
                                         value: true,
                                         message: 'Email is required'
@@ -42,20 +42,20 @@ const ContactSection = () => {
                                         message: 'Invalid Email'
                                     },
                                 })} />
-                                <label class="label">
+                                <label className="label">
                                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                                 </label>
                             </div>
-                            <div class="form-control">
-                                <input placeholder="Phone Number" class="input w-full max-w-xs" {...register('phone', { required: true })} />
-                                <label class="label">
+                            <div className="form-control">
+                                <input placeholder="Phone Number" className="input w-full max-w-xs" {...register('phone', { required: true })} />
+                                <label className="label">
                                     {errors.phone && <p className='text-red-500'>Phone number is required.</p>}
                                 </label>
                             </div>
                         </div>
-                        <div class="form-control">
-                            <textarea class="textarea" placeholder="Message" {...register('message', { required: true })} />
-                            <label class="label">
+                        <div className="form-control">
+                            <textarea className="textarea" placeholder="Message" {...register('message', { required: true })} />
+                            <label className="label">
                                 {errors.message && <p className='text-red-500'>Please enter message.</p>}
                             </label>
                         </div>

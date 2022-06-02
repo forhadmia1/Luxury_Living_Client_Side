@@ -39,7 +39,7 @@ const Services = () => {
                 </div>
             </div>
             <div className='flex justify-center mt-16'>
-                <button class="btn btn-primary text-white px-14 py-3 rounded-none">Explore More</button>
+                <button className="btn btn-primary text-white px-14 py-3 rounded-none">Explore More</button>
             </div>
         </section>
     );
