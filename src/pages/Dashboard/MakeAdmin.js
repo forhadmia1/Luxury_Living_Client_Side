@@ -12,7 +12,7 @@ const MakeAdmin = () => {
 
     return (
         <div className='px-4 md:mt-10'>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex items-center gap-4' >
+            <form onSubmit={handleSubmit(onSubmit)} className='flex items-end gap-4' >
                 <div className="form-control mt-4 w-full max-w-lg">
                     <label class="label">
                         <span class="label-text font-bold">Email:</span>
@@ -27,14 +27,16 @@ const MakeAdmin = () => {
                             message: 'Invalid Email'
                         },
                     })} />
-                    <label className="label">
-                        {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
-                    </label>
                 </div>
                 <div className='flex justify-center mt-8 '>
-                    <input className='btn btn-primary px-8 py-2 text-white' type="submit" value={'SIGNUP'} />
+                    <input className='btn btn-primary px-8 py-2 text-white' type="submit" value={'Make Admin'} />
                 </div>
             </form>
+            <div>
+                <label className="label">
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </label>
+            </div>
         </div>
     );
 };
