@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
@@ -16,6 +17,8 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [token] = useToken(user)
+
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const {
         register,
@@ -24,8 +27,8 @@ const SignUp = () => {
     } = useForm();
 
     const onSubmit = async (data) => {
-        console.log(data)
         const fullName = data.fname.concat(' ' + data.lname);
+        console.log(fullName)
         const email = data.email;
         const password = data.password;
         await createUserWithEmailAndPassword(email, password)
@@ -39,7 +42,7 @@ const SignUp = () => {
         }
     }, [error, errorMessage])
 
-    if (user) {
+    if (token) {
         navigate('/')
     }
 
