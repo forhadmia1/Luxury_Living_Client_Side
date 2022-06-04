@@ -1,12 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { themeChange } from 'theme-change'
 import logo from '../Assets/Image_Icon/Group 33069.png'
+import auth from '../firebase.init';
 
 
 
 const Navbar = () => {
+    const [user] = useAuthState(auth)
     useEffect(() => {
         themeChange(false)
         // 👆 false parameter is required for react project
@@ -39,7 +43,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className='navbar-end'>
-                <Link to={'/login'} className='btn btn-primary text-white py-3 px-7'>Login</Link>
+                {
+                    !user ? <Link to={'/login'} className='btn btn-primary text-white py-3 px-7'>Login</Link> : <button onClick={() => signOut(auth)} className='btn btn-primary text-white py-3 px-7'>SignOut</button>
+                }
             </div>
         </nav>
     );

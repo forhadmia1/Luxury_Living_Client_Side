@@ -15,7 +15,6 @@ const SocialLogin = () => {
             const err = gError?.code?.split('/')[1]?.split('-') || fError?.code?.split('/')[1]?.split('-');
             const message = err.join(' ')
             setErrormessage(message)
-            console.log(gError, fError)
             setIsOpen(true)
         }
     }, [gError, fError])

@@ -1,16 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
+    const navigate = useNavigate()
+    const [errorMessage, setErrorMessage] = useState('')
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+
+    const onSubmit = async (data) => {
+        console.log(data)
+        const fullName = data.fname.concat(' ' + data.lname);
+        const email = data.email;
+        const password = data.password;
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName: fullName })
+    };
+
+    useEffect(() => {
+        if (error) {
+            const message = error?.code?.split('/')[1]?.split('-').join(' ');
+            setErrorMessage(message)
+        }
+    }, [error, errorMessage])
+
+    if (user) {
+        navigate('/')
+    }
+
     return (
         <div className='md:mx-24 mb-8'>
             <Navbar />
@@ -61,6 +93,7 @@ const SignUp = () => {
                                     {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                                 </label>
                             </div>
+                            <p className='text-center text-semibold text-red-500'>{errorMessage}</p>
                             <div className='flex justify-center mt-5'>
                                 <input className='btn btn-primary px-8 py-2 text-white' type="submit" value={'SIGNUP'} />
                             </div>
