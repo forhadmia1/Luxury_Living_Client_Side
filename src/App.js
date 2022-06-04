@@ -12,6 +12,7 @@ import OrderList from './pages/Dashboard/OrderList';
 import AddService from './pages/Dashboard/AddService';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import ManageService from './pages/Dashboard/ManageService';
+import RequireAuth from './pages/Login/RequireAuth';
 
 function App() {
   return (
@@ -21,7 +22,11 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/dashboard' element={<Dashboard />}>
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }>
           <Route path='booking' element={<Booking />} />
           <Route path='bookingList' element={<BookingList />} />
           <Route path='review' element={<Review />} />
