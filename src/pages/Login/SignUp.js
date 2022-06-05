@@ -16,10 +16,10 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-
-    const [token] = useToken(user)
-
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    const [token] = useToken(user);
+
     const {
         register,
         handleSubmit,
@@ -28,7 +28,6 @@ const SignUp = () => {
 
     const onSubmit = async (data) => {
         const fullName = data.fname.concat(' ' + data.lname);
-        console.log(fullName)
         const email = data.email;
         const password = data.password;
         await createUserWithEmailAndPassword(email, password)

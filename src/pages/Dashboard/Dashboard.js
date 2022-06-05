@@ -4,9 +4,11 @@ import { BsCart3 } from 'react-icons/bs'
 import { RiFileList3Line } from 'react-icons/ri'
 import { MdOutlineReviews, MdAdd, MdPersonAddAlt, MdSettingsOverscan } from 'react-icons/md'
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
 
 const Dashboard = () => {
     const [routeName, SetRouteName] = useState('')
+    const [admin] = useAdmin()
     return (
         <div>
             <div class="navbar bg-base-100 md:px-8">
@@ -32,27 +34,30 @@ const Dashboard = () => {
                 <div class="drawer-side">
                     <label for="my-drawer-2" class="drawer-overlay"></label>
                     <ul onClick={(e) => SetRouteName(e.target.innerText)} class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
-                        <li><NavLink to={'booking'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><BsCart3 />Book</NavLink></li>
-                        <li><NavLink to={'bookingList'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><RiFileList3Line />Booking List</NavLink></li>
-                        <li><NavLink to={'review'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><MdOutlineReviews />Review</NavLink></li>
-                        <li><NavLink to={'order'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><RiFileList3Line />Order List</NavLink></li>
-                        <li><NavLink to={'addService'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><MdAdd />Add Service</NavLink></li>
-                        <li><NavLink to={'makeAdmin'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><MdPersonAddAlt />Make Admin</NavLink></li>
-                        <li><NavLink to={'ManageService'} className={({ isActive }) =>
-                            isActive ? 'font-bold' : ''
-                        }><MdSettingsOverscan />Manage Service</NavLink></li>
+                        {!admin ? <>
+                            <li><NavLink to={'booking'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><BsCart3 />Book</NavLink></li>
+                            <li><NavLink to={'bookingList'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><RiFileList3Line />Booking List</NavLink></li>
+                            <li><NavLink to={'review'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><MdOutlineReviews />Review</NavLink></li>
+                        </> : <>
+                            <li><NavLink to={'order'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><RiFileList3Line />Order List</NavLink></li>
+                            <li><NavLink to={'addService'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><MdAdd />Add Service</NavLink></li>
+                            <li><NavLink to={'makeAdmin'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><MdPersonAddAlt />Make Admin</NavLink></li>
+                            <li><NavLink to={'ManageService'} className={({ isActive }) =>
+                                isActive ? 'font-bold' : ''
+                            }><MdSettingsOverscan />Manage Service</NavLink></li>
+                        </>}
                     </ul>
                 </div>
             </div>

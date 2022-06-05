@@ -8,13 +8,13 @@ import logo from '../Assets/Image_Icon/Group 33069.png'
 import auth from '../firebase.init';
 
 
-
 const Navbar = () => {
     const [user] = useAuthState(auth)
     useEffect(() => {
         themeChange(false)
         // 👆 false parameter is required for react project
     }, [])
+
     return (
         <nav className="navbar">
             <div className="navbar-start">

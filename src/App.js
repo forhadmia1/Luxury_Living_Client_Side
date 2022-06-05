@@ -13,6 +13,7 @@ import AddService from './pages/Dashboard/AddService';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import ManageService from './pages/Dashboard/ManageService';
 import RequireAuth from './pages/Login/RequireAuth';
+import RequireAdmin from './pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -30,10 +31,26 @@ function App() {
           <Route path='booking' element={<Booking />} />
           <Route path='bookingList' element={<BookingList />} />
           <Route path='review' element={<Review />} />
-          <Route path='order' element={<OrderList />} />
-          <Route path='addService' element={<AddService />} />
-          <Route path='makeAdmin' element={<MakeAdmin />} />
-          <Route path='manageService' element={<ManageService />} />
+          <Route path='order' element={
+            <RequireAdmin>
+              <OrderList />
+            </RequireAdmin>
+          } />
+          <Route path='addService' element={
+            <RequireAdmin>
+              <AddService />
+            </RequireAdmin>
+          } />
+          <Route path='makeAdmin' element={
+            <RequireAdmin>
+              <MakeAdmin />
+            </RequireAdmin>
+          } />
+          <Route path='manageService' element={
+            <RequireAdmin>
+              <ManageService />
+            </RequireAdmin>
+          } />
         </Route>
       </Routes>
       <MouseParticles g={1} num={6} color="random" cull="stats,image-wrapper" level={6} />

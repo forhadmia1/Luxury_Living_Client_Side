@@ -38,7 +38,7 @@ const Login = () => {
         }
     }, [error, errorMessage])
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
